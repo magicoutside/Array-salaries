@@ -4,10 +4,9 @@ let y = salaries.reduce(function (sum, el){
 })
 console.log(y)
 //second way 
-let salaries1 = [1700, 2000, 1560, 2300, 1920, 1400];
 let sum = 0;
-for (let i=0; i < salaries1.length; i++){
-sum += salaries1[i];
+for (let i=0; i < salaries.length; i++){
+sum += salaries[i];
 }
 console.log(sum)
 //average
