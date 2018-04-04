@@ -72,3 +72,19 @@ let reduce = (arr, reducer, initialValue) => {
 
 }
 reduce([1,2,3,4], (el, acc) => el + acc, 0);
+
+//function expected
+var assertTrue = (expected, actual) => {
+    if (expected != actual)
+        throw `Expected ${expected}, but got ${actual}`;
+};
+
+var person = {
+    name: 'Ivan',
+    age: 13
+};
+
+assertTrue(person.name, 'Ivan');
+assertTrue(person.age , 130);
+console.log(person)
+
