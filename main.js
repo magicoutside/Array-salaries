@@ -97,3 +97,10 @@ var assertArraysEquals = (ar1, ar2) => {
 }
 
 assertArraysEquals([1,2], [1,2]);
+
+var string = " ";
+var assertObjectsEquals = {name: "Ivan", age: 13};
+for (var property1 in assertObjectsEquals) {
+	string = string + assertObjectsEquals[property1];
+}
+console.log(string)
