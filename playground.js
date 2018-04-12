@@ -17,4 +17,8 @@ var person = {
 
 assertEquals(person.name, 'Ivan');
 assertEquals(person.age , 13);
+
+assertEquals([1,2], [1,2]);
+
 console.log(person)
+console.log('Ok');
