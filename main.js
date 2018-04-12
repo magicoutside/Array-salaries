@@ -88,3 +88,12 @@ assertTrue(person.name, 'Ivan');
 assertTrue(person.age , 130);
 console.log(person)
 
+// assertEquals
+var assertArraysEquals = (ar1, ar2) => {
+    assertEquals(ar1.length, ar2.length);
+	for (i = 0; i < ar1.length; i++) { 
+		assertEquals(ar1[i], ar2[i]);
+    }
+}
+
+assertArraysEquals([1,2], [1,2]);
