@@ -1,4 +1,4 @@
-var assertTrue = (expected, actual) => {
+var assertEquals = (expected, actual) => {
     if (expected != actual)
         throw `Expected ${expected}, but got ${actual}`;
 };
