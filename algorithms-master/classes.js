@@ -4,9 +4,8 @@ class MyArray {
         this.len = 0
     }
 
-    push(value){
-        let newHead = new Item(value, this.head)
-        this.head = newHead
+    push(value) {
+        this.head = new Item(value, this.head)
         
         this.len += 1
     }
@@ -22,26 +21,65 @@ class MyArray {
 
         this.len += 1   
     }
+
     elementAt(position){
         let current = this.head
         let currentPosition = 0
-        while (current != null){
-            current = current.next
-            currentPosition++
-            if(currentPosition == position){
+
+        while (current != null) {
+
+            if (currentPosition == position){
                 return current
             }
-        }  
+
+            current = current.next
+            currentPosition++
+        }
+
+        return null  
     }
 
     last(){
-        let lastElement = this.head
+        let current = this.head
+        
+        if (current == null)
+            return null
 
-        while (lastElement != null && lastElement.next != null){
-            lastElement = lastElement.next 
+        while (current.next != null){
+            current = current.next 
+
         }
 
-        return lastElement
+        return current
+    }
+
+    max(){
+        let current = this.head
+        
+        if (current == null)
+            return null
+
+        let max = current.value 
+        let maxFoundAt = 0    
+
+        while (current.next != null){
+            current = current.next 
+
+            if(current.value > max)
+               max = current.value
+        }
+
+    }
+
+    deleteAt(position) {
+        let previous = this.elementAt(position - 1)
+        let next = this.elementAt(position + 1)
+        if(previous == null){
+            this.head = next
+        }
+
+        else
+            previous.next = next
     }
 
     sum(){
@@ -88,13 +126,12 @@ a.pushBack(200)
 a.pushBack(201)
 a.pushBack(202)
 
+//console.log(a.head)
+console.log(a.elementAt(3))
+a.deleteAt(3)
+console.log(a.elementAt(3))
+//console.log(a.sum())
 
-console.log(a);
-console.log(a.elementAt(2))
-
-console.log(a.length()) //2
-// a.push(1)
-// a.push(2)
 
 //console.log('all elements', a)
 //console.log(list.length())
