@@ -6,7 +6,6 @@ class MyArray {
 
     push(value) {
         this.head = new Item(value, this.head)
-        
         this.len += 1
     }
 
@@ -60,15 +59,19 @@ class MyArray {
             return null
 
         let max = current.value 
-        let maxFoundAt = 0    
+        let maxFoundAt = 0
+        let currentPosition = 0    
 
         while (current.next != null){
             current = current.next 
-
-            if(current.value > max)
+            currentPosition++
+            if(current.value > max) {
                max = current.value
+               maxFoundAt = currentPosition
+            }
         }
 
+        return {value: max, position: maxFoundAt}
     }
 
     deleteAt(position) {
@@ -77,9 +80,21 @@ class MyArray {
         if(previous == null){
             this.head = next
         }
-
         else
             previous.next = next
+        this.len-- 
+    }
+
+    sort(){
+        let result = new MyArray()
+        
+        while (this.len > 0) {
+            let maxn = this.max()
+            this.deleteAt(maxn.position)
+            result.pushBack(maxn.value)
+        }
+        
+        return result
     }
 
     sum(){
@@ -121,17 +136,21 @@ class Item {
 let a = new MyArray()
 //console.log(a) //0
 
-a.pushBack(100)
+a.pushBack(1000)
 a.pushBack(200)
 a.pushBack(201)
-a.pushBack(202)
-
+a.pushBack(1256)
+a.pushBack(2145)
+a.pushBack(12)
 //console.log(a.head)
-console.log(a.elementAt(3))
-a.deleteAt(3)
-console.log(a.elementAt(3))
-//console.log(a.sum())
+//console.log(a.elementAt(3))
+//a.sort()
+// console.log(a.elementAt(3))
+//console.log(a.max())
 
+//a.deleteAt(4)
+console.log(a.sort())
+console.log(a)
 
 //console.log('all elements', a)
 //console.log(list.length())
